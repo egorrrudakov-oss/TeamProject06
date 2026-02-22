@@ -12,10 +12,15 @@ try:
     # Многострочный ввод
     print('Enter records for the current appointment (to finish press Enter twice): ')
     lines = []
+    empty_line = 0
     while True:
         line = input()
         if not line:
-            break
+            empty_line += 1
+            if empty_line == 2:
+                break
+        else:
+            empty_line = 0
         lines.append(line)
 
 except FileNotFoundError:
